@@ -30,7 +30,6 @@ export const getTransacaoById = (id: number) => api.get<Transacao>(`/transacoes/
 export const createTransacao = (transacao: Omit<Transacao, "id">) => api.post("/transacoes", transacao);
 export const updateTransacao = (id: number, transacao: Omit<Transacao, "id">) => api.put(`/transacoes/${id}`, transacao); // <-- novo
 export const deleteTransacao = (id: number) => api.delete(`/transacoes/${id}`);
-export const restoreTransacao = (id: number) => api.post(`/admin/transacoes/${id}/restore`);
 
 // Relatórios
 export const getRelatorioPorPessoa = () => api.get<RelatorioPessoa[]>("/relatorios/pessoas");

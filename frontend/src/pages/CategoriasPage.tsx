@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Categoria } from "../types";
-import { getCategorias, deleteCategoria, restoreCategoria } from "../api";
+import { getCategorias, deleteCategoria } from "../api";
 import {
   Box, Button, Typography, Table, TableHead, TableRow, TableCell, TableBody, Paper, IconButton, Tooltip
 } from "@mui/material";
@@ -34,8 +34,8 @@ const CategoriasPage: React.FC = () => {
     await carregarCategorias();
   };
 
-  const handleRestore = async (id: number) => {
-    await restoreCategoria(id);
+  const handleRestore = async () => {
+
     await carregarCategorias();
   };
 
@@ -69,7 +69,7 @@ const CategoriasPage: React.FC = () => {
                       <Tooltip title="Excluir"><IconButton color="error" onClick={() => handleDelete(c.id)}><DeleteIcon/></IconButton></Tooltip>
                     </>
                   ) : (
-                    <Tooltip title="Restaurar"><IconButton onClick={() => handleRestore(c.id)}><RestoreIcon/></IconButton></Tooltip>
+                    <Tooltip title="Restaurar"><IconButton onClick={() => handleRestore()}><RestoreIcon/></IconButton></Tooltip>
                   )}
                 </TableCell>
               </TableRow>
